@@ -1,0 +1,33 @@
+@import "../../styles/mixins.scss";
+
+.review {
+  background-color: var(--rich-black);
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    align-items: center;
+    gap: 2rem;
+
+    @include respond(tab-port) {
+      gap: 4rem;
+    }
+  }
+
+  &__card {
+    text-align: center;
+  }
+
+  &__info {
+    img {
+      margin-inline: auto;
+      margin-block: 2rem 1rem;
+    }
+
+    h4 {
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 5px;
+    }
+  }
+}

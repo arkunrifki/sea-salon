@@ -1,0 +1,312 @@
+@import "./variables.scss";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $fontFamily;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+
+  .itemsContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0 0 0;
+    width: $desktop;
+
+    .logo {
+      margin: 0.5rem 0 0 0;
+
+      img {
+        width: auto;
+        height: 2.5rem;
+      }
+    }
+
+    .navList {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      ul {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        list-style: none;
+        padding: 0 0 0 5rem;
+
+        li {
+          padding: 0 2rem;
+
+          a {
+            color: $darkBlue;
+            text-decoration: none;
+            font-weight: $heavy;
+            font-size: $navFont;
+            opacity: 0.5;
+            transition: $transition;
+          }
+
+          a:hover {
+            opacity: 1;
+            transition: $transition;
+          }
+        }
+      }
+
+      .burgerContainer {
+        display: none;
+      }
+    }
+  }
+}
+
+headnav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 10rem 0 0 0;
+
+  .itemsContainer {
+    width: $desktop;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: $white;
+    border-radius: $borderRadius;
+    @include glass;
+
+    .contents {
+      padding: 3rem 1.5rem 1.5rem 1.5rem;
+
+      h1 {
+        font-size: $headerFont;
+        font-weight: $heavy;
+        padding: 0;
+        margin: 0;
+      }
+
+      span {
+        color: $orange;
+      }
+
+      p {
+        margin: 0;
+        padding: 0;
+        font-size: $pFont;
+      }
+    }
+
+    .buttons {
+      padding: 0 1.5rem 3rem 1.5rem;
+      width: $desktop;
+
+      button {
+        width: 15rem;
+        padding: 1.5rem 0;
+        font-size: $pFont;
+        font-weight: $light;
+      }
+
+      button.one {
+        background-color: $darkBlue;
+        color: $white;
+        border-radius: $borderRadius;
+        border: $buttonBorder;
+        cursor: pointer;
+        margin: 0 0.5rem 0 0;
+        transition: $transition;
+      }
+
+      button.two {
+        background-color: transparent;
+        border: $buttonBorder;
+        border-radius: $borderRadiusButtons;
+        cursor: pointer;
+        margin: 0 0 0 0.5rem;
+        transition: $transition;
+      }
+    }
+  }
+}
+@media screen and (max-width: 825px) {
+  nav {
+    .itemsContainer {
+      width: 100%;
+      padding: 2rem 2rem 0 2rem;
+
+      .navList {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        padding: 0;
+        margin: 0;
+        width: calc(100% - 4rem);
+        z-index: 1;
+        transform: translateY(-30rem);
+
+        ul {
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 0;
+          margin: 0;
+
+          li {
+            padding: 0.25rem 0;
+            font-size: $mobileNavFont;
+            margin: 0;
+
+            a {
+              padding: 0;
+              margin: 0;
+            }
+          }
+        }
+      }
+
+      .burgerContainer {
+        display: initial;
+        content: "";
+        width: 30px;
+        height: 30px;
+        position: relative;
+
+        .burgerTrigger {
+          content: "";
+          width: 30px;
+          height: 30px;
+          background-color: transparent;
+          z-index: 2;
+          position: absolute;
+          cursor: pointer;
+        }
+
+        .burgerMenu {
+          content: "";
+          width: 30px;
+          height: 4px;
+          background-color: $darkBlue;
+          z-index: 1;
+          position: absolute;
+          top: calc(30px / 2 - 2.5px);
+          transition: $transition;
+          border-radius: $borderRadius;
+        }
+
+        .burgerMenu::after {
+          content: "";
+          width: 30px;
+          height: 4px;
+          border-radius: $borderRadius;
+          background-color: $darkBlue;
+          position: absolute;
+          transform: translateY(0.6rem);
+          transition: $transition;
+        }
+
+        .burgerMenu::before {
+          content: "";
+          width: 30px;
+          height: 4px;
+          border-radius: $borderRadius;
+          background-color: $darkBlue;
+          position: absolute;
+          transform: translateY(-0.6rem);
+          transition: $transition;
+        }
+      }
+    }
+  }
+
+  nav.active {
+    background-color: $white;
+    height: 30rem;
+    @include shadow;
+
+    .itemsContainer {
+      position: absolute;
+      width: calc(100% - 4rem);
+      top: 0;
+
+      .navList {
+        transform: translateY(8rem);
+      }
+
+      .burgerContainer {
+        .burgerMenu {
+          width: 0px;
+        }
+
+        .burgerMenu::after {
+          transform: translateY(0) rotate(135deg);
+          transition: $transition;
+        }
+
+        .burgerMenu::before {
+          transform: translateY(0) rotate(-135deg);
+          transition: $transition;
+        }
+      }
+    }
+  }
+
+  headnav {
+    margin: 8rem 0 0 0;
+
+    .itemsContainer {
+      width: calc(100% - 4rem);
+
+      .contents {
+        h1 {
+          font-size: $mobileHeaderFont;
+          line-height: 2.5rem;
+          padding-bottom: 1rem;
+        }
+
+        p {
+          font-size: $mobilePFont;
+        }
+      }
+
+      .buttons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+
+        button.one {
+          margin: 0;
+          width: calc(100% - 4rem);
+        }
+
+        button.two {
+          margin: 1rem 0 0 0;
+          width: calc(100% - 4rem);
+        }
+      }
+    }
+  }
+}

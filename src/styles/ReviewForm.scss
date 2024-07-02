@@ -1,0 +1,60 @@
+// src/components/ReviewForm.scss
+
+@import "./variables.scss";
+
+.review-form {
+  background: rgba(255, 255, 255, 0.63);
+  border-radius: $borderRadius;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 2rem auto;
+
+  h2 {
+    font-size: $headerFont;
+    font-weight: $heavy;
+    margin-bottom: 1rem;
+    color: $darkBlue;
+    text-align: center;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid $darkBlue;
+    border-radius: $borderRadius;
+    font-family: $fontFamily;
+    font-size: $pFont;
+    color: $darkBlue;
+  }
+
+  button {
+    background-color: $darkBlue;
+    color: $white;
+    padding: 0.75rem;
+    font-size: $pFont;
+    font-weight: $medium;
+    border: none;
+    border-radius: $borderRadiusButtons;
+    cursor: pointer;
+    transition: $transition;
+    width: 100%;
+
+    &:hover {
+      background-color: darken($darkBlue, 10%);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .review-form {
+    padding: 1.5rem;
+  }
+}

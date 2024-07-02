@@ -1,0 +1,62 @@
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0 2rem;
+}
+h1 {
+  color: white;
+}
+
+.contents {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  bottom: 2rem;
+}
+
+.arrowIcon {
+  padding: 1rem 0 1rem 0;
+}
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.review {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+
+  h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    color: #555;
+  }
+
+  .rating {
+    color: #ffbf00;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #777;
+  }
+}
